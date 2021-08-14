@@ -22,13 +22,26 @@ submit = driver.find_element_by_xpath("//button[@type='submit']").click()
 
 
 #***************** ADD CONTACTS ***********************
+
+#search 
 search_bar=driver.find_element_by_xpath("//input[@aria-label='Search']")
 search_bar.send_keys("human resource")
 time.sleep(2)
 search_bar.send_keys(Keys.ENTER)
 time.sleep(5)
+#filters
 people = driver.find_element_by_xpath("//button[@aria-label='People']").click()
 time.sleep(5)
+locations_btn = driver.find_element_by_xpath("//button[@aria-label='Locations filter. Clicking this button displays all Locations filter options.']").click()
+time.sleep(2)
+locations=driver.find_element_by_xpath("//input[ type='checkbox']")
+for cb in locations:
+    if(cb.text=="tunisia"):
+        cb.click()
+
+
+time.sleep(2)
+# ADD CONTACTS
 for  i in range(5):
   
     
